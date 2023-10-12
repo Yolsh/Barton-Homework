@@ -30,11 +30,10 @@ namespace A104
         static void Q2()
         {
             int total = 0;
+            string choice;
 
             Console.WriteLine("Number?");
             int num = int.Parse(Console.ReadLine());
-            Console.WriteLine("Sum or Factorial?");
-            string choice = Console.ReadLine();
 
             if (ch oice == "s")
             {
