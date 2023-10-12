@@ -58,7 +58,7 @@ namespace A104
                 {
                     Console.WriteLine("Wrong input (s for Sum and f for Factorial)");
                 }
-            } while (choice != "s" | choice != "f");
+            } while (!(choice != "s" ^ choice != "f"));
             Console.WriteLine(total);
         }
         static void Main(string[] args)
