@@ -30,16 +30,15 @@ namespace A104
         static void Q2()
         {
             int total = 0;
+            string choice;
 
             Console.WriteLine("Number?");
             int num = int.Parse(Console.ReadLine());
-            Console.WriteLine("Sum or Factorial?");
-            string choice = Console.ReadLine();
 
             do
             {
                 Console.WriteLine("Sum or Factorial?");
-                string choice = Console.ReadLine();
+                choice = Console.ReadLine();
                 if (choice == "s")
                 {
                     for (int i = 0; i <= num; i++)
@@ -47,13 +46,17 @@ namespace A104
                         total += i;
                     }
                 }
-                else
+                else if (choice == "f")
                 {
                     total = 1;
                     for (int i = 1; i <= num; i++)
                     {
                         total *= i;
                     }
+                }
+                else
+                {
+                    Console.WriteLine("Wrong input (s for Sum and f for Factorial)");
                 }
             } while (choice != "s" | choice != "f");
             Console.WriteLine(total);
