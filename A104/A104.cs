@@ -36,7 +36,7 @@ namespace A104
             Console.WriteLine("Sum or Factorial?");
             string choice = Console.ReadLine();
 
-            if (choice == "s")
+            if (ch oice == "s")
             {
                 for (int i = 0; i <= num; i++)
                 {
