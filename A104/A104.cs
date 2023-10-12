@@ -38,24 +38,24 @@ namespace A104
 
             if (choice == "s")
             {
-                for (int i = 0; i < num; i++)
+                for (int i = 0; i <= num; i++)
                 {
                     total += i;
                 }
-                Console.WriteLine(total);
             }
             else if (choice == "f")
             {
-                for (int i = 1; i < num; i++)
+                total = 1;
+                for (int i = 1; i <= num; i++)
                 {
-                    num *= i;
+                    total *= i;
                 }
-                Console.WriteLine(num);
             }
             else
             {
                 Console.WriteLine("incorrect input");
             }
+            Console.WriteLine(total)
 
         }
         static void Main(string[] args)
