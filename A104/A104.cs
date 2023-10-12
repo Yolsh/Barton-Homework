@@ -42,6 +42,7 @@ namespace A104
                 {
                     total += i;
                 }
+                Console.WriteLine(total);
             }
             else if (choice == "f")
             {
@@ -50,12 +51,12 @@ namespace A104
                 {
                     total *= i;
                 }
+                Console.WriteLine(total);
             }
             else
             {
                 Console.WriteLine("incorrect input");
             }
-            Console.WriteLine(total)
 
         }
         static void Main(string[] args)
