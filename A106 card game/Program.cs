@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
@@ -17,12 +18,24 @@ namespace A106_card_game
         static int[] PlayerCards = new int[2];
         static Random rnd = new Random();
 
-        static void Display_Cards()
+        static void Display_Cards(string card)
         {
-            Console.WriteLine("Your cards are:");
-            for (int i = 0; i < 2; i++)
+            Console.WriteLine(card);
+        }
+
+        static void rand_card(int num)
+        {
+            Console.WriteLine("your cards are:");
+            for (int i = 0; i < num; i++)
             {
-                Console.Write(PlayerCards_disp[i]);
+                int choice = rnd.Next(1, 5);
+                switch (choice)
+                {
+                    case 1: Display_Cards(Hearts[rnd.Next(12)]); break;
+                    case 2: Display_Cards(Diamonds[rnd.Next(12)]); break;
+                    case 3: Display_Cards(Spades[rnd.Next(12)]); break;
+                    case 4: Display_Cards(Clubs[rnd.Next(12)]); break;
+                }
             }
         }
 
@@ -60,7 +73,7 @@ namespace A106_card_game
         }
         static void Player_Go()
         {
-            Display_Cards();
+            //Display_Cards();
             Console.WriteLine("would you like to stick or twist?");
             string answer;
             do
@@ -107,33 +120,51 @@ namespace A106_card_game
         }
         static void Main(string[] args)
         {
-            for (int i = 0; i < 2; i++)
+            Console.WriteLine("how many cards would you like?");
+            string ans;
+            int num = 0;
+            do
             {
-                switch(rnd.Next(3))
+                ans = Console.ReadLine();
+                Console.Clear();
+                try
                 {
-                    case 0:
-                        int heart = rnd.Next(12);
-                        PlayerCards_disp[i] = Hearts[heart];
-                        PlayerCards[i] = heart;
-                        break;
-                    case 1:
-                        int diamond = rnd.Next(12);
-                        PlayerCards_disp[i] = Diamonds[diamond];
-                        PlayerCards[i] = diamond + 13;
-                        break;
-                    case 2:
-                        int spade = rnd.Next(12);
-                        PlayerCards_disp[i] = Spades[spade];
-                        PlayerCards[i] = spade + 26;
-                        break;
-                    case 3:
-                        int club = rnd.Next(12);
-                        PlayerCards_disp[i] = Clubs[club];
-                        PlayerCards[i] = club + 39;
-                        break;
+                    num = int.Parse(ans);
+                    rand_card(num);
                 }
-            }
-            Player_Go();
+                catch (FormatException)
+                {
+                    Console.WriteLine("that is not a valid input try again");
+                }
+            } while (num == 0);
+
+            //for (int i = 0; i < 2; i++)
+            //{
+            //    switch(rnd.Next(3))
+            //    {
+            //        case 0:
+            //            int heart = rnd.Next(12);
+            //            PlayerCards_disp[i] = Hearts[heart];
+            //            PlayerCards[i] = heart;
+            //            break;
+            //        case 1:
+            //            int diamond = rnd.Next(12);
+            //            PlayerCards_disp[i] = Diamonds[diamond];
+            //            PlayerCards[i] = diamond + 13;
+            //            break;
+            //        case 2:
+            //            int spade = rnd.Next(12);
+            //            PlayerCards_disp[i] = Spades[spade];
+            //            PlayerCards[i] = spade + 26;
+            //            break;
+            //        case 3:
+            //            int club = rnd.Next(12);
+            //            PlayerCards_disp[i] = Clubs[club];
+            //            PlayerCards[i] = club + 39;
+            //            break;
+            //    }
+            //}
+            //Player_Go();
             Console.ReadKey();
         }
     }
