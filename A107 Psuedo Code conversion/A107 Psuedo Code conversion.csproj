@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{437E6E70-D076-49FD-81A7-779C05AF3924}</ProjectGuid>
+    <ProjectGuid>{D1EE70C4-C517-47B2-A3CC-1DB8B0F4514B}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>A107</RootNamespace>
-    <AssemblyName>A107</AssemblyName>
+    <RootNamespace>A107_Psuedo_Code_conversion</RootNamespace>
+    <AssemblyName>A107 Psuedo Code conversion</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="A107.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
