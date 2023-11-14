@@ -29,6 +29,7 @@ namespace A107_Psuedo_Code_conversion
             }
             Console.WriteLine(PlayerOneScore);
             Console.WriteLine(PlayerTwoScore);
+            Console.ReadKey();
         }
 
         static void Q2()
@@ -50,6 +51,7 @@ namespace A107_Psuedo_Code_conversion
                     Console.WriteLine(Count1);
                 }
             }
+            Console.ReadKey();
         }
         static void Main(string[] args)
         {
@@ -60,8 +62,8 @@ namespace A107_Psuedo_Code_conversion
                 Prog_run = Console.ReadLine();
                 switch (Prog_run)
                 {
-                    case "1": Q1(); break;
-                    case "2": Q2(); break;
+                    case "1": Console.Clear(); Q1(); break;
+                    case "2": Console.Clear(); Q2(); break;
                     default: Console.WriteLine("Not an option"); break;
                 }
             }while(Prog_run != "1" && Prog_run != "2");
