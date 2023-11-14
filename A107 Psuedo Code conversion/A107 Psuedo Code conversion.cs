@@ -45,6 +45,7 @@ namespace A107_Psuedo_Code_conversion
                     {
                         Prime = "No";
                     }
+                    Count2++;
                 }
                 if (Prime == "Yes")
                 {
