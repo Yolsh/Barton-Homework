@@ -60,11 +60,6 @@ namespace A108
                         Q2();
                         break;
 
-                    case "3":
-                        Console.Clear();
-                        Q2_alt();
-                        break;
-
                     default:
                         Console.WriteLine("invalid answer, try again");
                         break;
