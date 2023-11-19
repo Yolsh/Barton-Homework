@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Xml.Schema;
 
 namespace A108
 {
@@ -29,6 +30,7 @@ namespace A108
             int[] fibonacci = new int[31];
             fibonacci[0] = 0;
             fibonacci[1] = 1;
+            int total = 0;
 
             for (int i = 2; i < 31; i++)
             {
@@ -38,6 +40,11 @@ namespace A108
             {
                 Console.WriteLine((i+1) + ": " + fibonacci[i]);
             }
+            for (int i = 0; i < 31; i++)
+            {
+                total += fibonacci[i];
+            }
+            Console.WriteLine(total / 31);
             Console.ReadKey();
         }
 
