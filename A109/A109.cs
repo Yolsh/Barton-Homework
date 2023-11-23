@@ -19,10 +19,13 @@ namespace A109
         static PlayerStats UserFillStats()
         {
             PlayerStats PlayerStat;
-            PlayerStat.Names = new string[6];
-            PlayerStat.Values = new int[6];
+            Console.WriteLine("how many stats would you like to have?");
+            int PlayerStatNum = int.Parse(Console.ReadLine());
 
-            for (int i = 0; i < 6; i++)
+            PlayerStat.Names = new string[PlayerStatNum];
+            PlayerStat.Values = new int[PlayerStatNum];
+
+            for (int i = 0; i < PlayerStatNum; i++)
             {
                 Console.WriteLine("What would you like stat " + (i+1) + " to be?");
                 PlayerStat.Names[i] = Console.ReadLine();
@@ -57,7 +60,7 @@ namespace A109
         static PlayerStats DispPlayerStats(PlayerStats stats)
         {
             Console.Clear();
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < stats.Names.Length; i++)
             {
                 Console.WriteLine(stats.Names[i] + " = " + stats.Values[i]);
             }
@@ -74,6 +77,7 @@ namespace A109
 
                 StatsPointsCheck(DispPlayerStats(UserFillStats()));
                 Console.ReadKey();
+                Console.Clear();
             } while (ans != "NO");
             Environment.Exit(0);
         }
