@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A107 Psuedo Code conversion
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A108", "A108\A108.csproj", "{FEF0B18C-1180-42B2-8800-3E35B5F6C810}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A109", "A109\A109.csproj", "{2E3E1F91-A1A7-49CF-8B68-9EF341434572}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{FEF0B18C-1180-42B2-8800-3E35B5F6C810}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEF0B18C-1180-42B2-8800-3E35B5F6C810}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEF0B18C-1180-42B2-8800-3E35B5F6C810}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E3E1F91-A1A7-49CF-8B68-9EF341434572}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E3E1F91-A1A7-49CF-8B68-9EF341434572}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E3E1F91-A1A7-49CF-8B68-9EF341434572}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E3E1F91-A1A7-49CF-8B68-9EF341434572}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
