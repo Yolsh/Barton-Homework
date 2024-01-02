@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.IO;
 
@@ -12,12 +13,8 @@ namespace A112
         static void Main(string[] args)
         {
             List<string> file = getFile();
-            writeAnswer(CountVowels(FindAllVowels(file)));
-            foreach (string line in file)
-            {
-                Console.WriteLine(line);
-            }
-            Console.ReadKey();
+            CountVowels(file);
+            ReplaceAllVowels(file);
         }
         static List<string> getFile()
         {
@@ -43,49 +40,42 @@ namespace A112
             }
         }
 
-        static char[] FindAllVowels(List<string> file)
+        static void ReplaceAllVowels(List<string> file)
         {
-            char[] vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U' };
-            string allVowels = "";
-            foreach (string line in file)
+            string[] changed = new string[file.Count];
+            for (int i = 0; i < file.Count; i++)
             {
-                for (int i = 0; i < line.Length; i++)
+                changed[i] = Regex.Replace(file[i], "a|e|i|o|u|A|E|I|O|U", "");
+            }
+            using (StreamWriter sw = new StreamWriter("vowels.txt", true))
+            {
+                foreach (string line in changed)
                 {
-                    if (vowels.Contains(line[i]))
-                    {
-                        allVowels += line[i].ToString().ToLower();
-                        line.ToList().RemoveAt(i);
-                    }
+                    sw.Write(line);
                 }
             }
-            return allVowels.ToCharArray();
         }
 
-        static int[] CountVowels(char[] allVowels)
+        static void CountVowels(List<string> file)
         {
-            int[] NumOfVowels = new int[5];
-            foreach(char C in allVowels)
+            string matches = "";
+            int[] matchCount = new int[5];
+            foreach (string line in file)
             {
-                switch (C)
+                matches = Regex.Matches(line, "a|e|i|o|u|A|E|I|O|U").ToString().ToLower();
+            }
+            foreach (char vowel in matches)
+            {
+                switch (vowel)
                 {
-                    case 'a':
-                        NumOfVowels[0] += 1;
-                        break;
-                    case 'e':
-                        NumOfVowels[1] += 1;
-                        break;
-                    case 'i':
-                        NumOfVowels[2] += 1;
-                        break;
-                    case 'o':
-                        NumOfVowels[3] += 1;
-                        break;
-                    case 'u':
-                        NumOfVowels[4] += 1;
-                        break;
+                    case 'a': matchCount[0]++; break;
+                    case 'e': matchCount[1]++; break;
+                    case 'i': matchCount[2]++; break;
+                    case 'o': matchCount[3]++; break;
+                    case 'u': matchCount[4]++; break;
                 }
             }
-            return NumOfVowels;
+            writeAnswer(matchCount);
         }
     }
 }
