@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A113 Text Files", "A113 Tex
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A114", "A114\A114.csproj", "{5BCE4FF7-6890-49AF-824F-6934C663CE22}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A115", "A115\A115.csproj", "{6BC87D62-41BA-4658-839E-970939159426}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,10 @@ Global
 		{5BCE4FF7-6890-49AF-824F-6934C663CE22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BCE4FF7-6890-49AF-824F-6934C663CE22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BCE4FF7-6890-49AF-824F-6934C663CE22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BC87D62-41BA-4658-839E-970939159426}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BC87D62-41BA-4658-839E-970939159426}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BC87D62-41BA-4658-839E-970939159426}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BC87D62-41BA-4658-839E-970939159426}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
