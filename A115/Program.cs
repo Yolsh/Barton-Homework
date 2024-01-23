@@ -12,9 +12,16 @@ namespace A115
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Mode?");
+            string choice = Console.ReadLine();
             Console.WriteLine("Input Please");
             string input = Console.ReadLine();
-            Console.WriteLine(Encrypt(input));
+            switch (choice)
+            {
+                case "encrypt":
+                    Console.WriteLine(Encrypt(input)); Console.ReadKey(); break;
+                case "decrypt": Console.WriteLine(Decrypt(input)); Console.ReadKey(); break;
+            }
             Console.ReadKey();
         }
 
@@ -24,22 +31,43 @@ namespace A115
             foreach (char c in input)
             {
                 char cNew = ' ';
-                if (c == 'z' || c == 'Z')
+                int cVal = c;
+                if (c == 'z' || c == 'Z') cNew = 'A';
+                else if (cVal >= 65 && cVal <= 90 || cVal >= 97 && cVal <= 122)
                 {
-                    cNew = 'A';
-                }
-                else
-                {
-                    int cVal = c;
                     cVal++;
                     cNew = (char)cVal;
                 }
+                else cNew = c;
                 if (Regex.IsMatch(cNew.ToString(), "a|e|i|o|u|A|E|I|O|U"))
                 {
-                    int cVal = c;
                     cVal = cVal-32;
                     cNew = (char)cVal;
                 }
+                Final = Final + cNew;
+            }
+            return Final;
+        }
+
+        static string Decrypt(string input)
+        {
+            string Final = "";
+            foreach (char c in input)
+            {
+                char cNew = c;
+                int cVal = c;
+                if (Regex.IsMatch(cNew.ToString(), "a|e|i|o|u|A|E|I|O|U"))
+                {
+                    cVal = cVal + 32;
+                    cNew = (char)cVal;
+                }
+                if (c == 'A') cNew = 'z';
+                else if (cVal >= 65 && cVal <= 90 || cVal >= 97 && cVal <= 122)
+                {
+                    cVal--;
+                    cNew = (char)cVal;
+                }
+                else cNew = c;
                 Final = Final + cNew;
             }
             return Final;
