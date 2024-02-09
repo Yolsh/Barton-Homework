@@ -6,6 +6,7 @@
 
 using System;
 using System.IO;
+using System.Linq;
 
 class Program
 {
@@ -44,6 +45,7 @@ class Program
         else
         {
             Console.WriteLine("Hit at (" + Column + "," + Row + ").");
+            CheckSunk(Board, Ships, Row, Column);
             Board[Row, Column] = 'h';
         }
     }
@@ -57,6 +59,21 @@ class Program
                 Board[Row, Column] = '-';
             }
         }
+    }
+
+    private static void CheckSunk(char[,] board, ShipType[] Ships, int y, int x)
+    {
+        int[] ScanLengths = { 1, 1, 1, 1};
+        int ShipPointer = default;
+        for (int i = 0; i < Ships.Length; i++) if (Ships[i].Name[0] == board[y, x]) ShipPointer = i;
+        for (int i = 0; i < Ships[ShipPointer].Size; i++)
+        {
+            if (x - i > 0 && board[y, x - i] == 'h') ScanLengths[0]++;
+            if (x+i < 10 && board[y, x + i] == 'h') ScanLengths[1]++;
+            if (y - i > 0 && board[y - i, x] == 'h') ScanLengths[2]++;
+            if (y + i < 10 && board[y + i, x] == 'h') ScanLengths[3]++;
+        }
+        foreach (int Length in ScanLengths) if (Length == Ships[ShipPointer].Size) Console.WriteLine($"You Have Sunk a {Ships[ShipPointer].Name}");
     }
 
     private static void LoadGame(string TrainingGame, ref char[,] Board)
