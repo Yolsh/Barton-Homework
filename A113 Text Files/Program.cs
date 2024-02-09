@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -98,8 +99,9 @@ namespace A113_Text_Files
             int Highest = 0;
             foreach (string line in file)
             {
-                if (Regex.IsMatch(line, "29/[0-99]") && int.Parse(line.Substring(6, 6)) > Highest)
+                if (Regex.IsMatch(line, "29/2/[0-9999]") && int.Parse(line.Substring(6, 6)) > Highest)
                 {
+                    Console.WriteLine("match");
                     Highest = int.Parse(line.Substring(6, 6));
                 }
             }
