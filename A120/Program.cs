@@ -8,18 +8,18 @@ namespace A120
 {
     internal class Program
     {
+        static Random rand = new Random();
+
         static void Main(string[] args)
         {
             int[,] Board = new int[5, 5];
             FillBoard(Board);
-            PrintBoard(Board, GetHighestRow(Board), GetHighestColumn(Board));
+            PrintBoard(Board, GetMax(Board, true), GetMax(Board, false));
             Console.ReadKey();
         }
 
         static void FillBoard(int[,] Board)
         {
-            Random rand = new Random();
-
             for (int i = 0; i < Board.GetLength(0); i++)
             {
                 for (int j = 0; j < Board.GetLength(1); j++)
@@ -29,72 +29,59 @@ namespace A120
             }
         }
 
-        static void PrintBoard(int[,] Board, int row, int column)
+        static void PrintBoard(int[,] Board, int[] rows, int[] columns)
         {
+            int[] RowTotals = GetTotals(Board, true);
             for (int i = 0; i < Board.GetLength(0); i++)
             {
-                int RowTotal = 0;
                 for (int j = 0; j < Board.GetLength(1); j++)
                 {
-                    if (i == row && j == column)
+                    if (rows.Contains(i) && columns.Contains(j))
                     {
                         Console.ForegroundColor = ConsoleColor.Yellow;
                     }
-                    else if (j == column)
+                    else if (columns.Contains(j))
                     {
                         Console.ForegroundColor = ConsoleColor.Cyan;
                     }
-                    else if (i == row)
+                    else if (rows.Contains(i))
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                     }
                     Console.Write($"|{Board[i, j]}|");
-                    RowTotal += Board[i, j];
                     Console.ForegroundColor = ConsoleColor.White;
                 }
-                Console.Write(RowTotal);
+                Console.Write(RowTotals[i]);
                 Console.WriteLine();
             }
         }
 
-        static int GetHighestRow(int[,] Board)
+        static int[] GetMax(int[,] Board, bool RorC)
         {
-            int Biggest = 0;
-            int row = 0;
-            for (int i = 0; i < Board.GetLength(0); i++)
-            {
-                int RowTotal = 0;
-                for (int j = 0; j < Board.GetLength(1); j++)
-                {
-                    RowTotal += Board[i, j];
-                }
-                if (RowTotal > Biggest)
-                {
-                    Biggest = RowTotal;
-                    row = i;
-                }
-            }
-            return row;
+            List<int> Pointers = new List<int>();
+            int[] Totals;
+            if (RorC) Totals = GetTotals(Board, true);
+            else Totals = GetTotals(Board, false);
+            Pointers.Add(Array.IndexOf(Totals, Totals.Max()));
+            for (int i = 0; i < Totals.Length; i ++) if (Totals[i] == Totals.Max() && i != Pointers[0]) Pointers.Add(i);
+            return Pointers.ToArray();
         }
 
-        static int GetHighestColumn(int[,] Board)
+        static int[] GetTotals(int[,] Board, bool RorC)
         {
-            int Biggest = 0;
-            int column = 0;
-            for (int i = 0; i < Board.GetLength(1); i++)
+            int[] Totals = new int[Board.GetLength(0)];
+            int total;
+            for (int row = 0; row < Board.GetLength(0); row++)
             {
-                int ColumnTotal = 0;
-                for (int j = 0; j < Board.GetLength(0); j++)
+                total = 0;
+                for (int col = 0; col < Board.GetLength(1); col++) 
                 {
-                    ColumnTotal += Board[j, i];
+                    if (RorC) total += Board[row, col];
+                    else total += Board[col, row];
                 }
-                if (ColumnTotal > Biggest)
-                {
-                    Biggest = ColumnTotal;
-                    column = i;
-                }
+                Totals[row] = total;
             }
-            return column;
+            return Totals;
         }
     }
 }
