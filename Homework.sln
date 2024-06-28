@@ -79,6 +79,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A133 - MultiThreading", "A1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A133 - console forms and charts", "A133 - console forms and charts\A133 - console forms and charts.csproj", "{D4DC9AFF-1201-437D-8604-8AA7D85C64E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A134", "A134\A134.csproj", "{779CC50D-6244-42CD-A4C4-55A1F29BBAF6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -237,6 +239,10 @@ Global
 		{D4DC9AFF-1201-437D-8604-8AA7D85C64E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4DC9AFF-1201-437D-8604-8AA7D85C64E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4DC9AFF-1201-437D-8604-8AA7D85C64E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{779CC50D-6244-42CD-A4C4-55A1F29BBAF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{779CC50D-6244-42CD-A4C4-55A1F29BBAF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{779CC50D-6244-42CD-A4C4-55A1F29BBAF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{779CC50D-6244-42CD-A4C4-55A1F29BBAF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
